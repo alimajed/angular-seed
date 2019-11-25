@@ -1,0 +1,40 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button *appIsLoggedIn>
+      <mat-icon (click)="toggleSideNav()">menu</mat-icon>
+    </button>
+    <h1 *ngIf="showText">{{'toolbar.title' | translate}}</h1>
+    <span class="menu-spacer"></span>
+    <div class="full-width">
+      <a mat-button routerLink="public/home"> 
+        <mat-icon *ngIf="showIcon">home</mat-icon> 
+        <span *ngIf="showText">{{'toolbar.home' | translate}}</span> 
+      </a>
+      <a mat-button routerLink="public/news"> 
+        <mat-icon *ngIf="showIcon">dynamic_feed</mat-icon> 
+        <span *ngIf="showText">{{'toolbar.news' | translate}}</span> 
+      </a>
+      <a mat-button routerLink="public/about"> 
+        <mat-icon *ngIf="showIcon">info</mat-icon>
+        <span *ngIf="showText">{{'toolbar.about' | translate}}</span>
+      </a>
+      <a mat-button class="pull-right" *appIsLoggedOut routerLink="public/login"> 
+        <mat-icon>account_circle</mat-icon> 
+      </a>
+      <a mat-button class="pull-right" *appIsLoggedIn [matMenuTriggerFor]="appMenu">
+        <mat-icon>account_circle</mat-icon>
+      </a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-menu #appMenu="matMenu">
+  <button mat-menu-item routerLink="app/profile">
+    <mat-icon *ngIf="showIcon">settings_applications</mat-icon> 
+    <span *ngIf="showText">{{'toolbar.profile' | translate}}</span>
+  </button>
+  <button mat-menu-item (click)="logout()">
+    <mat-icon *ngIf="showIcon">power_settings_new</mat-icon> 
+    <span *ngIf="showText">{{'toolbar.logout' | translate}}</span> 
+  </button>
+</mat-menu>
+  

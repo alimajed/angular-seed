@@ -1,0 +1,22 @@
+[
+    {
+        "firstName": "test user",
+        "lastName": "test user",
+        "dateOfBirth": "01-01-1991",
+        "gender": "male",
+        "username": "user",
+        "password": "password",
+        "role": "user",
+        "token": "123456789"
+    },
+    {
+        "firstName": "test admin",
+        "lastName": "test admin",
+        "dateOfBirth": "01-01-1991",
+        "gender": "female",
+        "username": "admin",
+        "password": "password",
+        "role": "admin",
+        "token": "987654321"
+    }
+]

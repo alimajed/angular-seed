@@ -1,0 +1,35 @@
+{
+    "toolbar": {
+        "title": "Angular Seed",
+        "home": "Home",
+        "news": "News",
+        "about": "About",
+        "profile": "Profile",
+        "logout": "Logout"
+    },
+    "sidenav":{
+        "dashboard": "Dashboard",
+        "logs": "Logs",
+        "reports": "Reports",
+        "users-list": "Users Management"
+    },
+    "forms":{
+        "controls": {
+            "username": "Username",
+            "password": "Password",
+            "confirm-password": "Confirm Password",
+            "first-name": "First Name",
+            "last-name": "Last Name",
+            "date-of-birth": "Date Of Birth",
+            "gender-select": "Select Gender",
+            "gender-male": "Male",
+            "gender-female": "Female",
+            "login": "login",
+            "register": "register"
+        },
+        "errors": {
+            "required": "this field is required",
+            "password-match": "password and confirm password does not match"
+        }
+    }
+}

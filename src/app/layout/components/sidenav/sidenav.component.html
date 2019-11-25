@@ -1,0 +1,27 @@
+<mat-sidenav-container [hasBackdrop]="sideNavHasBackdrop" autosize>
+  <mat-sidenav #sideNav [(opened)]="sideNavOpened" [mode]="sideNavMode" role="navigation">
+    <mat-nav-list>
+      <a mat-list-item routerLink="app/dashboard"> 
+        <mat-icon *ngIf="showIcon">dashboard</mat-icon>
+        <span *ngIf="showText">{{'sidenav.dashboard' | translate}}</span>
+      </a>
+      <a mat-list-item routerLink="app/reports"> 
+        <mat-icon *ngIf="showIcon">file_copy</mat-icon>
+        <span *ngIf="showText">{{'sidenav.reports' | translate}}</span> 
+      </a>
+      <a mat-list-item routerLink="app/users-list" *appIsAdmin> 
+        <mat-icon *ngIf="showIcon">accessibility_new</mat-icon> 
+        <span *ngIf="showText">{{'sidenav.users-list' | translate}}</span>
+      </a>
+      <a mat-list-item routerLink="app/logs"> 
+        <mat-icon *ngIf="showIcon">assignment</mat-icon>
+        <span *ngIf="showText">{{'sidenav.logs' | translate}}</span> 
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 88vh;">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.full-width {
+    width: 100% !important;
+}
+
+.four-fifths-width {
+    width: 80% !important;
+}
+
+.half-width {
+    width: 50% !important;
+}
+
+.one-third-width {
+    width: 33% !important;
+}
+
+.pull-right {
+    float: right !important;
+}
+
+.pull-left {
+    float: left !important;
+}
+
+.login-card {
+    margin: auto;
+    margin-top: 5%;
+}
+
+.form-input {
+    width: 100% !important;
+}

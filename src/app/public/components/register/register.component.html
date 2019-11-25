@@ -1,0 +1,70 @@
+<mat-card class="login-card" 
+    [ngClass]="{'full-width': screenSize === 'x-small', 
+                'half-width': screenSize === 'medium' || screenSize === 'small', 
+                'one-third-width': screenSize === 'large'}"> 
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-content>
+        <form #registerForm="ngForm" [appMatchValue]= "['password', 'confirmPassword']"
+         (submit)="register($event)">
+            <mat-form-field class="full-width">
+                <input matInput type="text" #firstNameCrtl="ngModel" class="form-input" 
+                placeholder="{{'forms.controls.first-name' | translate}}" 
+                name="firstName" [(ngModel)]="user.firstName" required>
+                <mat-error *ngIf="firstNameCrtl.errors?.required">
+                    {{'forms.errors.required' | translate}}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input matInput type="text" #lastNameCrtl="ngModel" class="form-input" 
+                placeholder="{{'forms.controls.last-name' | translate}}" 
+                name="lastName" [(ngModel)]="user.lastName" required>
+                <mat-error *ngIf="lastNameCrtl.errors?.required">
+                    {{'forms.errors.required' | translate}}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input matInput type="date" #dateOfBirthCrtl="ngModel" class="form-input" 
+                placeholder="{{'forms.controls.date-of-birth' | translate}}" 
+                name="dateOfBirth" [(ngModel)]="user.dateOfBirth" required>
+                <mat-error *ngIf="dateOfBirthCrtl.errors?.required">
+                    {{'forms.errors.required' | translate}}
+                </mat-error>
+            </mat-form-field>
+            <mat-radio-group attr.aria-label="{{'forms.controls.gender-select' | translate}}" #genderCtrl="ngModel" 
+            name="gender" [(ngModel)]="user.gender" required>
+                <mat-radio-button value="male" [checked]="true">{{'forms.controls.gender-male' | translate}}</mat-radio-button>
+                <mat-radio-button value="female">{{'forms.controls.gender-female' | translate}}</mat-radio-button>
+                <mat-error *ngIf="registerForm.submitted && genderCtrl.errors?.required">
+                    {{'forms.errors.required' | translate}}
+                </mat-error>
+            </mat-radio-group>
+            <mat-form-field class="full-width">
+                <input matInput type="text" #userNameCrtl="ngModel" class="form-input" 
+                placeholder="{{'forms.controls.username' | translate}}" name="username" [(ngModel)]="user.usermame" required>
+                <mat-error *ngIf="userNameCrtl.errors?.required">
+                    {{'forms.errors.required' | translate}}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input matInput type="password" #passwordCrtl="ngModel" class="form-input" 
+                placeholder="{{'forms.controls.password' | translate}}" name="password" [(ngModel)]="user.password" required>
+                <mat-error *ngIf="passwordCrtl.errors?.required">
+                    {{'forms.errors.required' | translate}}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input matInput type="password" class="form-input" #confirmPasswordCrtl="ngModel"
+                placeholder="{{'forms.controls.confirm-password' | translate}}" name="confirmPassword" ngModel required>
+                <mat-error *ngIf="confirmPasswordCrtl.errors?.required">
+                    {{'forms.errors.required' | translate}}
+                </mat-error>
+                <mat-error *ngIf="confirmPasswordCrtl.errors?.matchValueError">
+                    {{'forms.errors.password-match' | translate}}
+                </mat-error>
+             </mat-form-field>
+            <mat-card-actions>
+                <button type="submit" class="pull-right" mat-raised-button color="primary">{{'forms.controls.register' | translate}}</button>
+            </mat-card-actions>
+        </form>
+    </mat-card-content>
+</mat-card>

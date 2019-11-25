@@ -1,0 +1,34 @@
+<mat-card class="login-card" 
+    [ngClass]="{'full-width': screenSize === 'x-small', 
+                'half-width': screenSize === 'medium' || screenSize === 'small', 
+                'one-third-width': screenSize === 'large'}"> 
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-content>
+        <form #loginForm="ngForm" (submit)="login($event)">
+            <mat-form-field class="full-width">
+                <input matInput type="text" #userNameCrtl="ngModel" class="form-input" 
+                placeholder="{{'forms.controls.username' | translate}}" 
+                name="username" [(ngModel)]="user.username" required>
+                <mat-error *ngIf="userNameCrtl.errors?.required">
+                    {{'forms.errors.required' | translate}}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input matInput type="password" #passwordCrtl="ngModel" class="form-input" 
+                placeholder="{{'forms.controls.password' | translate}}" 
+                name="password" [(ngModel)]="user.password" required>
+                <mat-error *ngIf="passwordCrtl.errors?.required">
+                    {{'forms.errors.required' | translate}}
+                </mat-error>
+            </mat-form-field>
+            <mat-card-actions>
+                <button type="submit" class="pull-right" mat-raised-button color="primary" [disabled]="loggingIn">
+                    {{'forms.controls.login' | translate}}
+                </button>
+                <button type="button" class="pull-right" mat-raised-button color="link" [disabled]="loggingIn" [routerLink]="['/public/register']">
+                    {{'forms.controls.register' | translate}}
+                </button>
+            </mat-card-actions>
+        </form>
+    </mat-card-content>
+</mat-card>
