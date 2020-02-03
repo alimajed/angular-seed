@@ -9,6 +9,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { RouterModule } from '@angular/router';
 import { MatchValueDirective } from './directives/match-value.directive';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MatchValueDirective } from './directives/match-value.directive';
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     RouterModule,
     PublicRoutingModule,
     SharedModule,

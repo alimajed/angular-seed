@@ -86,6 +86,7 @@ export class BackendProviderInterceptor implements HttpInterceptor {
                 role
             };
             users.push(newUser);
+            console.log(users);
             newUser.token = `fake-jwt-token.${userId}`;
             return ok(newUser);
         }
